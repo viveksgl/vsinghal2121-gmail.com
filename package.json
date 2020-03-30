@@ -1,0 +1,20 @@
+{
+  "name": "gmail-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "front-mailparser": "^0.6.1-5",
+    "googleapis": "^39.2.0",
+    "imap": "^0.8.19",
+    "mailparser": "^2.7.7"
+  }
+}
