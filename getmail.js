@@ -3,7 +3,26 @@
 var fs = require('fs');
 var readline = require('readline');
 var {google} = require('googleapis');
+
+var express = require('express')
+var app = express();
+
  
+
+app.get("/", function (req, res) {
+  res.send('Hello ')
+ 
+});
+
+app.get("/api/getMail", function (req, res) {
+  
+    res.send(getRecentEmail);
+ 
+
+});
+
+
+app.listen(3000, () => console.log('listening in 3000......'))
 // If modifying these scopes, delete your previously saved credentials
 // at TOKEN_DIR/gmail-nodejs.json
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
@@ -125,7 +144,7 @@ function listLabels(auth) {
     }
   });
 }
-function getRecentEmail(auth) {
+  function getRecentEmail(auth) {
     // Only get the recent email - 'maxResults' parameter
     gmail.users.messages.list({auth: auth, userId: 'me', maxResults: 10,}, function(err, response) {
         if (err) {
@@ -147,6 +166,7 @@ function getRecentEmail(auth) {
           }
  
          console.log('Email:'+ response.data);
+         return response.data ;
       });
       }
       
